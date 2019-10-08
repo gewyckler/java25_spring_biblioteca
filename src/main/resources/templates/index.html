@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: headerlinks"> <!--Doda treść fragmentu do obecnego taga -->
+
+<head> <!--Doda treść fragmentu do obecnego taga -->
     <meta charset="UTF-8">
     <title>Index Page</title>
-
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}">
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <div th:replace="fragments :: headerlinks" th:remove="tag"></div>
 </head>
+
 <body>
 <header th:replace="fragments :: navigator"></header>
 
-<main role="main">
-    <h1>dfdfsvcAAASADDASAD</h1>
+<main role="main" class="main">
+    <h1>!@#Uber Bilbioteca#!@</h1>
 
     <footer th:replace="fragments :: footer"></footer>
 </main>

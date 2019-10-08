@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head> <!--Doda treść fragmentu do obecnego taga -->
+    <meta charset="UTF-8">
+    <title>PH List</title>
+    <div th:replace="fragments :: headerlinks" th:remove="tag"></div>
+</head>
+
+<body>
+<header th:replace="fragments :: navigator"></header>
+
+<main role="main" class="main">
+    <div class="container">
+        <div class="row col-md-12 list-container">
+            <div class="row col-md-12">
+                <h1>PUBLISHING HOUSE</h1>
+            </div>
+            <div class="row col-md-12 list-header-row">
+                <div class="col-md-2">ID</div>
+                <div class="col-md-5">NAME</div>
+                <div class="col-md-5"></div>
+            </div>
+
+            <div class="row col-md-12 list-row" th:each="house : ${pubHouseList}">
+                <div class="col-md-2" th:text="${house.getId()}"></div>
+                <div class="col-md-5" th:text="${house.getName()}"></div>
+                <div class="col-md-5 row">
+
+                    <div class="col-md-4">
+                        <a th:href="@{'/pb/delete/'+${house.getId()}}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{'/pb/edit/'+${house.getId()}}" class="col-md-12">
+                            <button type="button" class="btn btn-primary col-md-12">Edit</button>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{'/pb/books/'+${house.getId()}}" class="col-md-12">
+                            <button type="button" class="btn btn-info col-md-12">List books</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments :: footer"></footer>
+</main>
+
+<div th:replace="fragments :: footerscripts"></div>
+</body>
+</html>
