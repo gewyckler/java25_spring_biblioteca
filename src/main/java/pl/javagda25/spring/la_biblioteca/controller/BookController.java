@@ -34,9 +34,9 @@ public class BookController {
 
     @PostMapping("/add")
     public String add(Long publishingHouseId, Book book) {
-        book.setYearWritten(LocalDateTime.now().getYear());
+        book.setYearWritten(book.getYearWritten());
         bookService.saveBook(book, publishingHouseId);
-        return "redirect:/pb/list";
+        return "redirect:/book/list";
     }
 
     @GetMapping("/details/{bookId}")

@@ -12,6 +12,8 @@
     <artifactId>la_biblioteca</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>la_biblioteca</name>
+    <packaging>war</packaging>
+
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -70,6 +72,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--oznacza tomcata jako oznaczony zeby nie startowalo z komputera tylko z serwera-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

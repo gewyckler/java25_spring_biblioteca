@@ -39,14 +39,13 @@ public class Book {
         this.numberOfAvailableCopies = numberOfAvailableCopies;
     }
 
-//    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-//    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
-//    private Set<Author> authors = new HashSet<>();
-//
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER)
-    private List<BookLent> currentLents;
+    @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+    private Set<Author> authors;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(mappedBy = "book", fetch = FetchType.EAGER)
+    private List<BookLent> currentLents;
 }
