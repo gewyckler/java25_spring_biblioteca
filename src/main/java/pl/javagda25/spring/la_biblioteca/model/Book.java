@@ -2,6 +2,7 @@ package pl.javagda25.spring.la_biblioteca.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -46,6 +47,7 @@ public class Book {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @ManyToMany(mappedBy = "book", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(value = {org.hibernate.annotations.CascadeType.DELETE})
     private List<BookLent> currentLents;
 }

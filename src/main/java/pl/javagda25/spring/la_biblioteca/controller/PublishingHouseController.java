@@ -45,7 +45,6 @@ public class PublishingHouseController {
             return "redirect:/pb/list";
         } catch (Exception e) {
             return "redirect:/pb/list";
-
         }
     }
 

@@ -1,10 +1,10 @@
 package pl.javagda25.spring.la_biblioteca.model;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +21,7 @@ public class Client {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(value = {org.hibernate.annotations.CascadeType.DELETE})
     private List<BookLent> lents;
 }

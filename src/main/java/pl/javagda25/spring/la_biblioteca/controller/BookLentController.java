@@ -45,11 +45,9 @@ public class BookLentController {
     }
 
     @GetMapping("/list/{clientId}")
-    public String list(Model model, HttpServletRequest request,
+    public String list(Model model,
                        @PathVariable(name = "clientId") Long clientId) {
         Optional<Client> optionalClient = clientService.getById(clientId);
-
-//        model.addAttribute("referer", request.getHeader("referer"));
 
         if (optionalClient.isPresent()) {
 
@@ -61,7 +59,6 @@ public class BookLentController {
         }
         return "redirect:/client/list";
     }
-
 
     @GetMapping("/returnbook/{lentId}")
     public String returnBook(HttpServletRequest request,
